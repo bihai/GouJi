@@ -1,0 +1,16 @@
+﻿*.js
+*.ilk
+*.exp
+*.sdf
+*.suo
+*.user.
+
+obj/
+build/proj.android/assets/
+build/proj.android/bin/
+build/proj.android/gen/
+build/proj.android/libs/
+build/proj.android/obj/
+
+
+Published-HTML5

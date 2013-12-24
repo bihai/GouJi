@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C68D15A4-A7FF-40DD-98EC-8CAD8E0B7F1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloLua</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>888147C2-DF65-4CEA-938E-7C7883DE462E</key>
+		<string>ssh://bitbucket.org/korman/litegame.git</string>
+		<key>8D33EF90-4EE0-4F80-A318-BAD693CAC862</key>
+		<string>ssh://bitbucket.org/korman/resources.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>projects/WifeBirthday/build/proj.ios/HelloLua.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>888147C2-DF65-4CEA-938E-7C7883DE462E</key>
+		<string>../../../../../..</string>
+		<key>8D33EF90-4EE0-4F80-A318-BAD693CAC862</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/korman/resources.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>888147C2-DF65-4CEA-938E-7C7883DE462E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>888147C2-DF65-4CEA-938E-7C7883DE462E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>game_src</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8D33EF90-4EE0-4F80-A318-BAD693CAC862</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WifeBirthday</string>
+		</dict>
+	</array>
+</dict>
+</plist>

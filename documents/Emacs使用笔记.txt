@@ -1,0 +1,307 @@
+Emacs 使用笔记 
+ 
+Emacs 笔记
+  
+Emacs 笔记
+Table of Contents
+1 Emacs 与 Tab
+2 Etags的使用
+3 常用命令
+3.1 书签操作
+3.2 程序
+3.3 文件
+3.4 跳转
+3.5 编辑
+3.6 删除
+3.7 文本换位
+3.8 其他命令
+3.9 查找替换
+3.10 窗口
+3.11 buffer
+3.12 选择
+3.13 书签
+3.14 目录
+3.15 帮助
+3.16 矩形区域操作
+3.17 调整分割窗口大小
+3.18 Emacs Lisp Interpreter
+4 Tramp 的使用
+5 using recent file package
+6 使用Ediff
+7 更新org-mode
+7.1 windows
+7.2 Others
+8 配置org-mode写笔记
+8.1 配置笔记项目
+8.2 在org-mode中显示图片
+8.3 其他
+1 Emacs 与 Tab
+使用Emacs能够方便的将tab键替换为空格，只要选中区域，输入：
+M-x untabify
+或者将空格换成tab：
+M-x tabify
+就行了。在.emacs文件中可以添加这样一条指令来使Emacs处理tab键：
+(setq tab-width 4      indent-tab-mode nil)
+Emacs 文档：
+Emacs normally uses both tabs and spaces to indent lines.  If youprefer, all indentation can be made from spaces only.  To request this,set `indent-tabs-mode' to `nil'.  This is a per-buffer variable, soaltering the variable affects only the current buffer, but there is adefault value which you can change as well.  *Note Locals::.   A tab is not always displayed in the same way.  By default, tabs areeight columns wide, but some people like to customize their editors touse a different tab width (e.g., by changing the variable `tab-width'in Emacs).  By using spaces only, you can make sure that your filelooks the same regardless of the tab width setting.   There are also commands to convert tabs to spaces or vice versa,always preserving the columns of all nonblank text.  `M-x tabify' scansthe region for sequences of spaces, and converts sequences of at leasttwo spaces to tabs if that can be done without changing indentation.`M-x untabify' changes all tabs in the region to appropriate numbers ofspaces.
+2 Etags的使用
+Emacs可以使用etags来方便的建立程序中函数以及变量的索引，从而能够快捷的搜 索到函数定义的位置。
+输入 M-! 进入shell command的模式，输入:
+etags *.cpp *.h
+等类似命令，就能将本文件夹当中的所有C/C++文件建立索引，并生成TAGS文件。 再告知Emacs TAGS表已经生成，输入：
+M-x visit-tags-table
+就能够在Emacs中使用TAGS表了。常用指令：
+ 
+M-.在tag表查找函数名中包含有某个字符串的函数。a nice feature：它把光标当前所在的word当作默认查找字符串
+C-x 4作用与M-.相似，不过是使用另一个缓冲区
+M-,查看下一个函数。如果存在多个符合查询条件的函数，M-.只显示结果列表中按字母序排的第一个函数，M-,用来查看下一个函数
+M-x tags-search输入正则表达式，查找所有列在tag表中的文件。凡是符合reglar expression的内容都显示出来。这点有点类似grep。结果中可通过M-,查看下一个
+M-x tags-query-replace查询替换。作用在tag中列出的所有文件上.
+C-u M-x tags-query-replace只有完全匹配时，才替换(replaces only matches that are whole words),如果用Esc或C-g推出了tags-query-replace，可通过M-,再恢复
+M-x tags-apropos如果给定正则表达式作参数，它将在*Tags List*中列出匹配该正则表达式的所有tags
+M-x list-tagslist所有给定C文件中的在tag表中所有的tag。可通过M-.查看每个函数的定义
+3 常用命令
+ 
+3.1 书签操作
+ 
+C-x r m添加书签
+C-x r b跳到某个书签
+M-x list-bookmarks显示所有书签，在里面d标记删除，u取消，r重命名，x执行操作
+3.2 程序
+ 
+C-x C-z挂起程序
+C-c C-x退出程序
+C-c k关闭buffer
+C-l重画屏幕
+C-g结束命令，或者假死中恢复，也可以按3次ESC
+3.3 文件
+ 
+C-x C-s保存
+C-x C-w另存为
+C-x C-f打开文件
+C-x C-r只读方式打开
+C-x C-v读入另外一个文件代替当前buffer的文件
+C-x s保存所有
+C-x i将文件的内容插入
+M-x revert-buffer恢复到原始状态
+3.4 跳转
+ 
+前 / 后单位
+C-f / b字
+M-f / b词
+C-a / e行内
+M-a / e句
+M-< / >文档（不可用，从新绑定为跳转到文件头和文件尾）
+C-p / n行间
+M-{ / }段落
+C-x ] / [页
+C-x C-x文件内，mark之间
+M-g g跳到指定行
+M-x goto-char跳到指定字符
+C-M-n / C-M-p跳转到配对括号处
+3.5 编辑
+ 
+M-u后面单词变为大写
+M-l后面单词变为小写
+M-c后面单词的首字母变大写
+M-/补全
+C-j从当前位置分成两行,相当于RET + tab
+M-(插入()
+C-q tab插入tab
+C-q C-m插入^M
+M-;插入注释
+C-o回车
+3.6 删除
+ 
+M-d后一词
+C-d后一字
+M-del前一词
+M-k到句尾
+M-/前面的所有空白 (不可用)
+M-z删到指定字母处
+C-k删除到行尾
+3.7 文本换位
+ 
+C-t字符 (不可用，以替换为选中区域)
+M-t单词
+C-x C-t行
+M-x transpose-*其他命令
+3.8 其他命令
+ 
+M-x indent-region让选择的区块自动对齐
+C-u <数字> <命令>重复命令n次
+M-<数字> <命令>同上 (怎么用？)
+M-!运行shell命令
+C-u M-!执行一条外部命令，并输出到光标位置
+M-x cd改变工作目录
+M-x pwd当前工作目录
+M-x eval-buffer在.emacs的buffer中运行，重新加载emacs配置
+3.9 查找替换
+ 
+C-r向上查找
+C-s向下查找
+C-s C-w向下查找，光标位置的单词作为查找字符串
+C-s C-y向下查找，光标位置到行尾作为查找字符串
+C-s RET <查找字符串> RET非递增查找
+C-s RET C-w不受换行、空格、标点影响
+C-M-s正则式向下查找
+用向上查找命令就将上面命令的s替换为r
+3.10 窗口
+ 
+C-x 0关掉当前窗口
+C-x 1关掉其他窗口
+C-x o切换窗口
+C-x 2水平两分窗口
+C-x 3垂直两分窗口
+C-x 5 2在新frame中打开当前文件
+3.11 buffer
+ 
+C-x C-b查看
+C-x b切换
+C-x C-q设为只读
+C-x k删除
+C-x left/right切换
+3.12 选择
+ 
+M-h选择段落
+C-x h全部选择
+C-M-h选中当前函数所在范围
+C-c C-c在CC Mode中实现同上相同功能
+3.13 书签
+ 
+C-x r m <name>设置书签
+C-x r b <name>跳转到书签
+C-x r l书签列表
+M-x bookmark-delete删除书签
+M-x bookmark-load读取存储书签文件
+M-x bookmark-save保存到文件
+M-x list-bookmark书签列表
+3.14 目录
+ 
+C-x d / M-x dired启动目录模式
+C-x C-d简单目录
+3.15 帮助
+ 
+C-h k显示你将按下的键执行的function.
+C-h f列出function的功能说明。
+C-h b列出目前所有的快捷键。
+C-h m列出目前的mode的特殊说明.
+C-c C-h列出以C-c 开头的所有快捷键.
+3.16 矩形区域操作
+在Emacs中可以进行矩形区域的操作，方法是先Mark一个点，移动当前光标，则选 中的矩形区域为从Mark位置到当前Point位置的矩形区域，使用专用的矩形区域操 作函数或快捷键，则能进行矩形区域的操作了。注意默认情况下，Emacs并不会单 独高亮矩形区域，而是高亮所有选中的行。矩形操作快捷键如下：
+ 
+C-x r kKill当前选中矩形区域的内容，并保存到last killed rectangle缓存中(kill-rectangle)
+C-x r d删除当前选中矩形区域(delete-rectangle)
+C-x r yYank 上一次删除的矩形区域缓存，左上角对齐
+C-x r o从选中的矩形区域左上角开始，插入与选中区域相同大小的空白区域
+C-x r c将选择的矩形区域替换为空格
+C-x r t STRING <RET>将选中矩形区域每一行替换为输入的字符串
+M-x string-insert-rectangle <RET> STRING <RET>是上面快捷方式的命令方式
+M-x delete-whitespace-rectangle删除当前矩形区域内行首的空格
+3.17 调整分割窗口大小
+在命令行中无法使用鼠标,当对Emacs进行分割窗口时,无法使用调整分割窗口的大 小,这时可以使用命令来进行调整.注意以下命令都可以使用 C-u number 的形式来 进行重复操作,而不需要多次执行相同命令
+ 
+C-x ^上下分割窗口时,将当前窗口扩大,同时压缩另外一个窗口
+C-x } / C-x {左右分割窗口时,向左右分别调整窗口大小
+3.18 Emacs Lisp Interpreter
+使用下列命令,启动IELM,Emacs Lisp命令解释器
+M-x ielm
+4 Tramp 的使用
+After a few failed attempted at getting tramp working in NTEmacs the solution ended up being pretty simple.
+Download Plink.exe.
+Place Plink.exe somewhere in your windows PATH, doesn’t matter where
+but you have to be able to run in from a command line anywhere on your system.
+Add the following line somewhere in your .emacs.
+(setq tramp-default-method "plink")
+From there you should be able to use find-file (C-x C-f) and a command like the following to bring up a remote file:
+/user@host.com:/path/to/file.ext
+5 using recent file package
+I bet the majority of files you edit on a day-to-day basis are the same ones over, and over again. For that reason I recommend you use Emacs’s recentf package, it is a great — and very sophisticated, like all things Emacs — utility that keeps track of recently used files.
+I supercharge recentf by adding Ido mode support (if you don’t know what Ido is, read Introduction to Ido Mode); and by overriding C-x C-r, bound to find-file-read-only, a useless feature I never use. Note: the Ido supercharging only works if you have ido-mode enabled in the first place!
+Note that unlike find-file I’ve opted to display the entire filepath in Ido’s completion engine as I often find that a directory or remote host is the only disambiguator if there are multiple files with the same name. I’ve thought about filtering the list of recent files through the uniquify module for buffers but that’s for another time.
+Here’s what you need to add to your .emacs:
+(require 'recentf);; get rid of `find-file-read-only' and replace it with something;; more useful.(global-set-key (kbd "C-x C-r") 'ido-recentf-open);; enable recent files mode.(recentf-mode t);; 50 files ought to be enough.(setq recentf-max-saved-items 50)(defun ido-recentf-open ()  "Use `ido-completing-read' to //[find-file] a recent file"  (interactive)  (if (find-file (ido-completing-read "Find recent file: " recentf-list))      (message "Opening file...")    (message "Aborting")))
+6 使用Ediff
+使用 M-x ediff启动Ediff
+ 
+TitleDescription
+ediff-buffers询问两个缓冲区的名字，然后比较
+ediff-files询问两个文件的名字，加载之，然后比较
+ediff-windows-linewise,让你选两个窗口，然后比较窗口的内容。 -linewise- 函数比 -wordwise- 函数要快，但另一方面， -wordwise- 工作方式更好,
+ediff-windows-wordwise尤其是小区域作业时。 -linewise- 一行一行地比较， -wordwise- 一个单词一个单词地比较。
+ediff-regions-linewise,询问两个缓冲区的名字，然后比较相应的区域。不过你只能在每一个缓冲区中选定一个区域，而不能比较一个文件缓冲区的两个区
+ediff-regions-域。( TODO: 第15个小时的内容 "了解文件" ，会提供一个比较同一个文件中的两个区域的方法。)
+快捷键
+ 
+快捷键命令说明
+qediff-quit关闭 ediff control buffer，并退出 ediff
+Space / nediff-next-difference下一个差异处
+Del / pediff-previous-difference上一个差异处
+[n]jediff-jump-to-difference有数字前缀 [n] 修饰，第n个差异处,n可为负数
+v / C-vediff-scroll-vertically所有缓冲区同步向下滚动
+V / M-vediff-scroll-vertically所有缓冲区同步向上滚动
+<ediff-scroll-horizontally所有缓冲区同步向左滚动
+>ediff-scroll-horizontally所有缓冲区同步向右滚动
+(vertical bar)ediff-toggle-split切换缓冲区布局方式, 水平和竖直
+mediff-toggle-wide-display在正常 frame 大小和最大化之间切换
+aediff-copy-A-to-B把Buffer-A的内容复制到Buffer-B
+bediff-copy-B-to-A把Buffer-B的内容复制到Buffer-A
+r a / r bediff-restore-diff恢复 Buffer-A 或 Buffer-B 差异区域中的被修改的内容
+A / Bediff-toggle-read-only切换 Buffer-A 或 Buffer-B 的只读状态
+g a / g bediff-jump-to-difference-at-point根据光标在缓冲区中的位置，设置一个离它们最近的差异区域为当前活动
+C-lediff-recenter恢复先前的所有缓冲区比较的高亮差异区。
+！　　　ediff-update-diffs重新比较并高亮差异区域
+w a / w bediff-save-buffer保存 Buffer-A 或 Buffer-B 到磁盘
+Eediff-documentation打开 Ediff 文档
+zediff-suspend关闭 ediff control buffer, 只是挂起，可在以后恢复 ediff 状态
+7 更新org-mode
+ 
+7.1 windows
+在windows下,Emacs默认待的Org-mode版本比较老,在我的机器上,23.3版本中自带 的org-mode版本为6.33b.为了能够使用更新的功能,在 官网 上下载最新的org-mode 代码.
+我下载的是7.8.08版本的代码.放到自己的site-lisp目录下.在我的机器上,我放到 ~/.emacs.d/site-lisp/org 目录下
+在配置文件中添加:
+(setq load-path (cons "e:/home/.emacs.d/site-lisp/org/lisp" load-path))(require 'org-install)
+重新启动Emacs后,使用org-version命令即可查看当前org-mode的版本号,可以看到 为最新版本了.
+为了加快启动速度,可以使用emacs编译下载的org源代码,输入:
+C-u 0 M-x byte-recompile-directory
+然后在刚才添加的目录: e:/home/.emacs.d/site-lisp/org/lisp
+7.2 Others
+在Linux等下,也可以采用以上方式.在使用ubuntu等系统时,更可以使用apt-get来 获取org-mode.
+安装时,只需要执行make->make install->make install-info
+之后执行
+(require 'org-install)
+8 配置org-mode写笔记
+之前一直用muse来记录笔记,因为他的导出功能很好用,一下就全部导出为html文件 了.这几天比较闲,用tkinter写了个日志分析软件,本来是想用muse来记笔记记录一 下的.写的过程中发现,由于muse不能够将文本进行折叠,文件比较长的情况下,要想 浏览前边写的东西,翻页是件很烦心的事情,决定尝试一下org来实现.
+结果一试才发现,org基本能够实现所有muse的功能,而且很多地方还做得更好.并且 配置了下,还能在emacs中同时显示图片和文字,这样图文并茂的编辑笔记,顿时觉得 爽快了很多.
+下面是配置的过程.由于之前更新了org-mode到最新版本,这里就不介绍更新org的 方式了.
+8.1 配置笔记项目
+由于我的笔记喜欢发布为html格式,可以在emacs以及浏览器上浏览.将笔记设置为 一个功能.
+在org-mode中,通过设置 org-publish-project-alist 这个变量来设置.首先,加载 org-publish包.并设置这个变量.
+(require 'org-publish)(setq org-publish-project-alist      '(        ;; ... add all the components here (see below)...        ))
+在我的home目录下,建立了一个notes目录,同时,将其导出时,我希望把他导出到 home目录下的public_html目录下.那么添加如下设置到刚才setq函数中.
+其中 :recursive t 参数设置递归notes目录所有文件,而 :base-extension则表示 递归所有扩展名为org的文件.导出为html,则导出函数 :publishing-function 设 置为 org-publish-org-to-html
+("org-notes" :base-directory "~/notes/" :base-extension "org" :publishing-directory "~/public_html/" :recursive t :publishing-function org-publish-org-to-html :headline-levels 4             ; Just the default for this project. :auto-preamble t )
+导出为html文件,会有一些静态文件,如图片,css文件等,以下配置设置这些静态文 件,将其从notes文件夹拷贝到public_html文件夹中.这样有个好处,比如我在org文 件中引用一个图片文件,可以使用相对路径,而org可以帮助我们把这些文件拷贝到 发布目录中,这样我们就不用担心图片路径问题了.
+("org-static" :base-directory "~/notes/" :base-extension "css//|js//|png//|jpg//|gif//|pdf//|mp3//|ogg//|swf" :publishing-directory "~/public_html/" :recursive t :publishing-function org-publish-attachment )
+最后是将笔记文件和静态文件取个快捷名称,当使用 org-public-project 命令时, 可以直接使用该快捷名称,就可以将其有变化的组件同时发布出来.
+("notes" :components ("org-notes" "org-static"))
+最后该配置如下所示:
+(require 'org-publish)(setq org-publish-project-alist      '(        ;; ... add all the components here (see below)...        ("org-notes"         :base-directory "~/notes/"         :base-extension "org"         :publishing-directory "~/public_html/"         :recursive t         :publishing-function org-publish-org-to-html         :headline-levels 4             ; Just the default for this project.         :auto-preamble t         )        ("org-static"         :base-directory "~/notes/"         :base-extension "css//|js//|png//|jpg//|gif//|pdf//|mp3//|ogg//|swf"         :publishing-directory "~/public_html/"         :recursive t         :publishing-function org-publish-attachment         )        ("notes" :components ("org-notes" "org-static"))))
+8.2 在org-mode中显示图片
+使用iimage-mode可以在emacs的buffer内部显示图片,这样编辑笔记的文档的时候, 就可以图文并茂的进行编辑了,非常舒服.
+在我的emacs 23.3版本中自带了iimage,因此在配置文件中只需要直接引用就可以 了.
+;; enable image mode first(iimage-mode)
+然后添加笔记中我常用的图片格式到iimage模式的alist中:
+;; add the org file link format to the iimage mode regex(add-to-list 'iimage-mode-image-regex-alist             (cons (concat "//[//[file://(~?" iimage-mode-image-filename-regex                           "//)//]")  1))
+为org-mode添加hook,当启动时自动加载iimage模式,显示图片,这里需要新增一个 函数 org-turn-on-iimage-in-org:
+;;  add a hook so we can display images on load(add-hook 'org-mode-hook '(lambda () (org-turn-on-iimage-in-org)));; function to setup images for display on load(defun org-turn-on-iimage-in-org ()  "display images in your org file"  (interactive)  (turn-on-iimage-mode)  (set-face-underline-p 'org-link nil))
+再增加一个函数,用于打开和关闭iimage模式,就可以切换是否打开当前org buffer 中的图片文件:
+;; function to toggle images in a org bugger(defun org-toggle-iimage-in-org ()  "display images in your org file"  (interactive)  (if (face-underline-p 'org-link)      (set-face-underline-p 'org-link nil)      (set-face-underline-p 'org-link t))  (iimage-mode))
+完成以上步骤,就可以在org-mode中显示图片了.
+8.3 其他
+org模式已经有很多快捷键了,这里增加了一些方便自己使用的快捷键.
+(add-hook 'org-mode-hook          (lambda ()            (local-set-key "/M-n" 'outline-next-visible-heading)            (local-set-key "/M-p" 'outline-previous-visible-heading)            ;; table            (local-set-key "/M-/C-w" 'org-table-copy-region)            (local-set-key "/M-/C-y" 'org-table-paste-rectangle)            (local-set-key "/M-/C-l" 'org-table-sort-lines)            ;; display images            (local-set-key "/M-I" 'org-toggle-iimage-in-org)            ;; fix tab            (local-set-key "/C-y" 'yank)            ;; yasnippet (allow yasnippet to do its thing in org files)            (org-set-local 'yas/trigger-key [tab])            (define-key yas/keymap [tab] 'yas/next-field-group)))
+Date: 2012-09-17 22:14:09 CST
+Author: Chenbin
+Org version 7.8.08 with Emacs version 24
+Validate XHTML 1.0
