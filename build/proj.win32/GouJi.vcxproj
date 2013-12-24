@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{13E55395-94A2-4CD9-BFC2-1A051F80C17D}</ProjectGuid>
+    <ProjectGuid>{035AABC5-3F4C-47D7-B518-66DCF1A22189}</ProjectGuid>
     <RootNamespace>HelloLua.win32</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
