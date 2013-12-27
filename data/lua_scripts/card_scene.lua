@@ -11,10 +11,6 @@ local p = card_scene;
 p.m_pScene = nil;
 
 function p.init()
-	return true;
-end
-
-function p.getScene()
 	if p.m_pScene == nil then
 		p.m_pScene = CCScene:create();
 
@@ -32,6 +28,9 @@ function p.getScene()
 		pNode:addChild(pSprite);
 		
 	end
-	
+	return true;
+end
+
+function p.getScene()	
 	return p.m_pScene;
 end

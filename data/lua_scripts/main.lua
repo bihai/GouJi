@@ -1,5 +1,5 @@
 require "MainUI";
-require "card_scene";
+require("card_scene");
 
 -- for CCLuaEngine traceback
 function __G__TRACKBACK__(msg)
@@ -11,7 +11,7 @@ end
 
 local function main()
 	require "common_func";
-
+	
 	local kMainLayer = MainScene.initMainUI();
 
 	if nil == kMainLayer then
@@ -19,8 +19,6 @@ local function main()
 	end
 
 	kMainLayer:setTouchEnabled(true);
-
-	card_scene.init();
 	
 	local kMainScene = CCScene:create();
 

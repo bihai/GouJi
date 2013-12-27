@@ -15,6 +15,7 @@ ccb["MainSceneOwner"] = MainSceneOwner;
 local p = MainScene;
 
 function p.onPressEntryBtn()
+	card_scene.init();
 	local kNextScene = card_scene.getScene();
 
 	if kNextScene == nil then

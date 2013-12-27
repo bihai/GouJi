@@ -5,5 +5,11 @@
 -- 注意：		这个类是单例，注意用法！
 --------------------------------------------------------------
 
-card_manager = dlg_menu or {};
+card_manager = card_manager or {};
 local p = card_manager;
+
+p.m_vecCards = {};
+
+function p.initCards()
+	return true;
+end
