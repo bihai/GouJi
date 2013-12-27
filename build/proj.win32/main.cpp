@@ -25,7 +25,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     // create the application instance
     AppDelegate kApplication;
     CCEGLView* pkEglView = CCEGLView::sharedOpenGLView();
-    pkEglView->setViewName("HelloLua");
+    pkEglView->setViewName("‰ò¼‰");
     pkEglView->setFrameSize(480, 320);
     int ret = CCApplication::sharedApplication()->run();
 
