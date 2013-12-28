@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A47CD158-02C6-4CEC-81E7-955DEEB8DF63</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WifeBirthday</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>00647663-1D1B-4D61-B1A3-01D18EA729DD</key>
+		<string>ssh://github.com/korman/GouJi.git</string>
+		<key>888147C2-DF65-4CEA-938E-7C7883DE462E</key>
+		<string>ssh://bitbucket.org/korman/litegame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>projects/GouJi/build/proj.ios/WifeBirthday.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>00647663-1D1B-4D61-B1A3-01D18EA729DD</key>
+		<string>../../../..</string>
+		<key>888147C2-DF65-4CEA-938E-7C7883DE462E</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/korman/GouJi.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>888147C2-DF65-4CEA-938E-7C7883DE462E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>888147C2-DF65-4CEA-938E-7C7883DE462E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>game_src</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>00647663-1D1B-4D61-B1A3-01D18EA729DD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GouJi</string>
+		</dict>
+	</array>
+</dict>
+</plist>

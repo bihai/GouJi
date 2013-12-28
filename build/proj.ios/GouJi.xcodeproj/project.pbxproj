@@ -189,7 +189,7 @@
 		1AA88BBB171E32410023E7B2 /* luaconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaconf.h; sourceTree = "<group>"; };
 		1AA88BBC171E32410023E7B2 /* lualib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lualib.h; sourceTree = "<group>"; };
 		1AA88D0D171E337C0023E7B2 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libluajit.a; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* WifeBirthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WifeBirthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* 够级.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "够级.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		230B434618258012002C161C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../data/images/app_icon/Default-568h@2x.png"; sourceTree = "<group>"; };
 		230B434718258012002C161C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../data/images/app_icon/Default.png; sourceTree = "<group>"; };
 		230B434818258012002C161C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../data/images/app_icon/Default@2x.png"; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 		BF82F41E13A8652A00616D55 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		BF82F41F13A8652A00616D55 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		BF82F42013A8652A00616D55 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BF82F42313A8654600616D55 /* WifeBirthday_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeBirthday_Prefix.pch; sourceTree = "<group>"; };
+		BF82F42313A8654600616D55 /* GouJi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouJi_Prefix.pch; sourceTree = "<group>"; };
 		D403B5D8135D1AF1004B518D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D4CEAD7713B4634300780515 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		D4CEAD7813B4634300780515 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* WifeBirthday.app */,
+				1D6058910D05DD3D006BFB54 /* 够级.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -593,7 +593,7 @@
 			children = (
 				D4CEAD7713B4634300780515 /* RootViewController.mm */,
 				D4CEAD7813B4634300780515 /* RootViewController.h */,
-				BF82F42313A8654600616D55 /* WifeBirthday_Prefix.pch */,
+				BF82F42313A8654600616D55 /* GouJi_Prefix.pch */,
 				BF82F41E13A8652A00616D55 /* AppController.h */,
 				BF82F41F13A8652A00616D55 /* AppController.mm */,
 				BF82F42013A8652A00616D55 /* main.m */,
@@ -949,9 +949,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* WifeBirthday */ = {
+		1D6058900D05DD3D006BFB54 /* GouJi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WifeBirthday" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GouJi" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -962,9 +962,9 @@
 			dependencies = (
 				15A3DBC51682FBA2002FB0C5 /* PBXTargetDependency */,
 			);
-			name = WifeBirthday;
+			name = GouJi;
 			productName = WifeBirthday;
-			productReference = 1D6058910D05DD3D006BFB54 /* WifeBirthday.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* 够级.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -975,7 +975,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WifeBirthday" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GouJi" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -995,7 +995,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* WifeBirthday */,
+				1D6058900D05DD3D006BFB54 /* GouJi */,
 			);
 		};
 /* End PBXProject section */
@@ -1173,7 +1173,7 @@
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WifeBirthday_Prefix.pch;
+				GCC_PREFIX_HEADER = GouJi_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					USE_FILE32API,
 					CC_TARGET_OS_IPHONE,
@@ -1210,7 +1210,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = WifeBirthday;
+				PRODUCT_NAME = "够级";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1229,7 +1229,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WifeBirthday_Prefix.pch;
+				GCC_PREFIX_HEADER = GouJi_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					USE_FILE32API,
 					CC_TARGET_OS_IPHONE,
@@ -1266,7 +1266,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = WifeBirthday;
+				PRODUCT_NAME = "够级";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1323,7 +1323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WifeBirthday" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GouJi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -1332,7 +1332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WifeBirthday" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GouJi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
