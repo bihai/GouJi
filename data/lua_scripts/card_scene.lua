@@ -5,6 +5,8 @@
 -- 注意：		这个类是单例，注意用法！
 --------------------------------------------------------------
 
+require "background_map";
+
 card_scene = card_scene or {};
 local p = card_scene;
 
@@ -26,6 +28,8 @@ function p.init()
 		local pSprite = CCSprite:createWithSpriteFrameName("cl1.bmp");
 		pSprite:setPosition(ccp(200,100));
 		pNode:addChild(pSprite);
+		
+		background_map.initMap();
 		
 	end
 	return true;
