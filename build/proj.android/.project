@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>HelloLua</name>
+	<name>GouJi</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -98,7 +98,13 @@
 		<link>
 			<name>Resources</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Resources</locationURI>
+			<locationURI>copy_PARENT/Resources</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-2-ECLIPSE_HOME%7D/Code/game_dev/game_src/projects/GouJi/build</value>
+		</variable>
+	</variableList>
 </projectDescription>

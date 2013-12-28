@@ -2,11 +2,11 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := wifebirthday_shared
+LOCAL_MODULE := gouji_shared
 
-LOCAL_MODULE_FILENAME := libWifeBirthday
+LOCAL_MODULE_FILENAME := libGouJi
 
-LOCAL_SRC_FILES := WifeBirthday/main.cpp \
+LOCAL_SRC_FILES := GouJi/main.cpp \
                    ../../Classes/AppDelegate.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
