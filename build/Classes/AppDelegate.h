@@ -1,10 +1,11 @@
 #ifndef  _APP_DELEGATE_H_
 #define  _APP_DELEGATE_H_
 
+#include <cocos2d.h>
 #include "CCApplication.h"
 #include <vector>
 #include <string>
-#include "cocoa\CCGeometry.h"
+//#include "cocoa\CCGeometry.h"
 
 #define ENTRY_LUA_FUNC "main.lua"
 #define GAME_FPS 30
