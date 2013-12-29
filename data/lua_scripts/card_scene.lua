@@ -7,13 +7,20 @@
 
 require "background_map";
 require "card_manager";
+require "role_manager";
 
 card_scene = card_scene or {};
 local p = card_scene;
 
 p.m_pScene = nil;
+p.m_bSingle = true;
 
-function p.init()
+function p.init(bSingle)
+	if false == bSingle then
+		cclog("NO SINGLE MODE");
+		return false;
+	end
+	
 	if p.m_pScene == nil then 
 		p.m_pScene = CCScene:create();
 		
@@ -25,7 +32,7 @@ function p.init()
 			return false;
 		end
 		
-		local pNode = card_manager.initCards(1);
+		local pNode = card_manager.initCards(4);
 		
 		if nil == pNode then
 			cclog("Wrong Node");
@@ -34,12 +41,56 @@ function p.init()
 		
 		p.m_pScene:addChild(pNode,10);
 		p.m_pScene:addChild(pMap,-10);
+	end
+	
+	if false == role_manager.initialise(true) then
+		return false;
+	end
+	
+	p.beginGame();
+	
+	return true;
+end
+
+function p.beginGame()
+	if p.m_bSingle then
+		p.toDeal();
+	end
+end
+
+function p.toDeal()
+	local vecList = role_manager.getRoleList();
+	
+	if nil == vecList or 0 == table.getn(vecList) then
+		cclog("vecList error! Size is "..#vecList);
+		return false;
+	end
+	
+	local nIndex = 1;
+	
+	repeat
+		local pCard = card_manager.getRandCardFromList();
 		
+		if nil ~= pCard then
+			local nNumber = nIndex % table.getn(vecList) + 1;
+			local pRole = vecList[nNumber];
+			
+			if pRole then
+				pRole:addCard(pCard);
+			end
+		end
+		
+		nIndex = nIndex + 1;
+	until nil == pCard
+	
+	for k,v in ipairs(vecList) do
+		v:showCards();
+		cclog("\n\n\n");
 	end
 	
 	return true;
 end
 
-function p.getScene()	
+function p.getScene()
 	return p.m_pScene;
 end
