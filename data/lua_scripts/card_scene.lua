@@ -26,10 +26,20 @@ function p.init()
 		local pNode = CCSpriteBatchNode:createWithTexture(pTexture);
 		p.m_pScene:addChild(pNode);
 		local pSprite = CCSprite:createWithSpriteFrameName("cl1.bmp");
-		pSprite:setPosition(ccp(200,100));
 		pNode:addChild(pSprite);
 		
 		background_map.initMap();
+		local pMap = background_map.getMap();
+		
+		if pMap == nil then
+			cclog("Wrong Map!");
+			return false;
+		end
+		
+		pSprite:setScale(0.5);
+		pSprite:setPosition(background_map.getPosByTiled(10,10));
+		
+		p.m_pScene:addChild(pMap,-10);
 		
 	end
 	return true;
