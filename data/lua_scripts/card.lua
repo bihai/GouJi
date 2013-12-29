@@ -21,3 +21,7 @@ function p:ctor()
 	self.m_pSprite = nil;
 	self.m_nNumber = 0;
 end
+
+function p:initialise()
+	return true;
+end

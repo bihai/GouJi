@@ -13,7 +13,7 @@ p.m_pTiledMap = nil;
 function p.initMap()
 	
 	if nil == p.m_pTiledMap then
-		p.m_pTiledMap = CCTMXTiledMap:create("bg.tmx");
+		p.m_pTiledMap = CCTMXTiledMap:create("../tlmap/bg.tmx");
 	end
 	
 	return true;

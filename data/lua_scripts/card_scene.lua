@@ -13,7 +13,7 @@ local p = card_scene;
 p.m_pScene = nil;
 
 function p.init()
-	if p.m_pScene == nil then
+	if p.m_pScene == nil then 
 		p.m_pScene = CCScene:create();
 
 		CCSpriteFrameCache:sharedSpriteFrameCache():addSpriteFramesWithFile("cards/cards.plist","cards/cards.png");
