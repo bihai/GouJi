@@ -1,5 +1,6 @@
 require "MainUI";
-require("card_scene");
+require "card_scene";
+require "card_define";
 
 -- for CCLuaEngine traceback
 function __G__TRACKBACK__(msg)

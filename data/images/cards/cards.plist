@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>blackJoker.bmp</key>
+            <key>black_joker.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{110,2},{75,106}}</string>
@@ -17,7 +17,20 @@
                 <key>sourceSize</key>
                 <string>{75,106}</string>
             </dict>
-            <key>cardSkin.bmp</key>
+            <key>enable.bmp</key>
+            <dict>
+                <key>frame</key>
+                <string>{{100,932},{71,96}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{71,96}}</string>
+                <key>sourceSize</key>
+                <string>{71,96}</string>
+            </dict>
+            <key>hei_1.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{75,834},{71,96}}</string>
@@ -30,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl1.bmp</key>
+            <key>hei_10.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{75,736},{71,96}}</string>
@@ -43,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl10.bmp</key>
+            <key>hei_11.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,932},{71,96}}</string>
@@ -56,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl2.bmp</key>
+            <key>hei_12.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,834},{71,96}}</string>
@@ -69,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl3.bmp</key>
+            <key>hei_13.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,736},{71,96}}</string>
@@ -82,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl4.bmp</key>
+            <key>hei_2.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,659},{71,96}}</string>
@@ -95,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl5.bmp</key>
+            <key>hei_3.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,659},{71,96}}</string>
@@ -108,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl6.bmp</key>
+            <key>hei_4.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,663},{71,96}}</string>
@@ -121,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl7.bmp</key>
+            <key>hei_5.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,663},{71,96}}</string>
@@ -134,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl8.bmp</key>
+            <key>hei_6.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,659},{71,96}}</string>
@@ -147,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>cl9.bmp</key>
+            <key>hei_7.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,586},{71,96}}</string>
@@ -160,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>clj.bmp</key>
+            <key>hei_8.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,586},{71,96}}</string>
@@ -173,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>clk.bmp</key>
+            <key>hei_9.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,590},{71,96}}</string>
@@ -186,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>clq.bmp</key>
+            <key>hong_1.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,590},{71,96}}</string>
@@ -199,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di1.bmp</key>
+            <key>hong_10.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,586},{71,96}}</string>
@@ -212,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di10.bmp</key>
+            <key>hong_11.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,513},{71,96}}</string>
@@ -225,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di2.bmp</key>
+            <key>hong_12.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,513},{71,96}}</string>
@@ -238,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di3.bmp</key>
+            <key>hong_13.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,517},{71,96}}</string>
@@ -251,7 +264,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di4.bmp</key>
+            <key>hong_2.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,517},{71,96}}</string>
@@ -264,7 +277,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di5.bmp</key>
+            <key>hong_3.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,513},{71,96}}</string>
@@ -277,7 +290,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di6.bmp</key>
+            <key>hong_4.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,440},{71,96}}</string>
@@ -290,7 +303,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di7.bmp</key>
+            <key>hong_5.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,440},{71,96}}</string>
@@ -303,7 +316,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di8.bmp</key>
+            <key>hong_6.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,444},{71,96}}</string>
@@ -316,7 +329,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>di9.bmp</key>
+            <key>hong_7.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,444},{71,96}}</string>
@@ -329,7 +342,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>dij.bmp</key>
+            <key>hong_8.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,440},{71,96}}</string>
@@ -342,7 +355,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>dik.bmp</key>
+            <key>hong_9.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,367},{71,96}}</string>
@@ -355,7 +368,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>diq.bmp</key>
+            <key>hua_1.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,367},{71,96}}</string>
@@ -368,7 +381,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he1.bmp</key>
+            <key>hua_10.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,371},{71,96}}</string>
@@ -381,7 +394,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he10.bmp</key>
+            <key>hua_11.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,371},{71,96}}</string>
@@ -394,7 +407,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he2.bmp</key>
+            <key>hua_12.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,367},{71,96}}</string>
@@ -407,7 +420,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he3.bmp</key>
+            <key>hua_13.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,294},{71,96}}</string>
@@ -420,7 +433,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he4.bmp</key>
+            <key>hua_2.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,294},{71,96}}</string>
@@ -433,7 +446,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he5.bmp</key>
+            <key>hua_3.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,298},{71,96}}</string>
@@ -446,7 +459,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he6.bmp</key>
+            <key>hua_4.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,298},{71,96}}</string>
@@ -459,7 +472,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he7.bmp</key>
+            <key>hua_5.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,294},{71,96}}</string>
@@ -472,7 +485,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he8.bmp</key>
+            <key>hua_6.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,221},{71,96}}</string>
@@ -485,7 +498,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>he9.bmp</key>
+            <key>hua_7.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,221},{71,96}}</string>
@@ -498,7 +511,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>hej.bmp</key>
+            <key>hua_8.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,225},{71,96}}</string>
@@ -511,7 +524,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>hek.bmp</key>
+            <key>hua_9.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,225},{71,96}}</string>
@@ -524,7 +537,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>heq.bmp</key>
+            <key>pian_1.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,221},{71,96}}</string>
@@ -537,20 +550,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>redJoker.bmp</key>
-            <dict>
-                <key>frame</key>
-                <string>{{2,2},{75,106}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <true/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{75,106}}</string>
-                <key>sourceSize</key>
-                <string>{75,106}</string>
-            </dict>
-            <key>sp1.bmp</key>
+            <key>pian_10.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{394,148},{71,96}}</string>
@@ -563,7 +563,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp10.bmp</key>
+            <key>pian_11.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{296,148},{71,96}}</string>
@@ -576,7 +576,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp2.bmp</key>
+            <key>pian_12.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,152},{71,96}}</string>
@@ -589,7 +589,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp3.bmp</key>
+            <key>pian_13.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,152},{71,96}}</string>
@@ -602,7 +602,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp4.bmp</key>
+            <key>pian_2.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{198,148},{71,96}}</string>
@@ -615,7 +615,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp5.bmp</key>
+            <key>pian_3.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{100,79},{71,96}}</string>
@@ -628,7 +628,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp6.bmp</key>
+            <key>pian_4.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,79},{71,96}}</string>
@@ -641,7 +641,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp7.bmp</key>
+            <key>pian_5.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{414,75},{71,96}}</string>
@@ -654,7 +654,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp8.bmp</key>
+            <key>pian_6.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{316,75},{71,96}}</string>
@@ -667,7 +667,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>sp9.bmp</key>
+            <key>pian_7.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{218,75},{71,96}}</string>
@@ -680,7 +680,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>spj.bmp</key>
+            <key>pian_8.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{414,2},{71,96}}</string>
@@ -693,7 +693,7 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>spk.bmp</key>
+            <key>pian_9.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{316,2},{71,96}}</string>
@@ -706,7 +706,20 @@
                 <key>sourceSize</key>
                 <string>{71,96}</string>
             </dict>
-            <key>spq.bmp</key>
+            <key>red_joker.bmp</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{75,106}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{75,106}}</string>
+                <key>sourceSize</key>
+                <string>{75,106}</string>
+            </dict>
+            <key>skin.bmp</key>
             <dict>
                 <key>frame</key>
                 <string>{{218,2},{71,96}}</string>
@@ -729,7 +742,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:62339879fc337aefd06a2b22f285d6f9:81fe406875a2da8e6dd30b6b57d21211:fc86278e5045194fe7638df41a1aa4f3$</string>
+            <string>$TexturePacker:SmartUpdate:0c248699af403cdad959508216d13660:0c9fcd6f238eaf59cc0116c00abc948d:fc86278e5045194fe7638df41a1aa4f3$</string>
             <key>textureFileName</key>
             <string>cards.png</string>
         </dict>

@@ -20,8 +20,20 @@ end
 function p:ctor()
 	self.m_pSprite = nil;
 	self.m_nNumber = 0;
+	self.m_bSkin = true;
 end
 
-function p:initialise()
+function p:initialise(pCardTexture,nNumber)
+	
+	self.m_nNumber = nNumber;
+	
 	return true;
+end
+
+function p:getSkin()
+	return self.m_bSkin;
+end
+
+function p:setSkin(bValue)
+	self.m_bSkin = bValue;
 end

@@ -6,6 +6,7 @@
 --------------------------------------------------------------
 
 require "background_map";
+require "card_manager";
 
 card_scene = card_scene or {};
 local p = card_scene;
@@ -15,18 +16,6 @@ p.m_pScene = nil;
 function p.init()
 	if p.m_pScene == nil then 
 		p.m_pScene = CCScene:create();
-
-		CCSpriteFrameCache:sharedSpriteFrameCache():addSpriteFramesWithFile("cards/cards.plist","cards/cards.png");
-		local pTexture = CCTextureCache:sharedTextureCache():textureForKey("cards/cards.png");
-
-		if nil == pTexture then
-			cclog("Wrong Key!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		end
-		
-		local pNode = CCSpriteBatchNode:createWithTexture(pTexture);
-		p.m_pScene:addChild(pNode);
-		local pSprite = CCSprite:createWithSpriteFrameName("cl1.bmp");
-		pNode:addChild(pSprite);
 		
 		background_map.initMap();
 		local pMap = background_map.getMap();
@@ -36,12 +25,18 @@ function p.init()
 			return false;
 		end
 		
-		pSprite:setScale(0.5);
-		pSprite:setPosition(background_map.getPosByTiled(10,10));
+		local pNode = card_manager.initCards(1);
 		
+		if nil == pNode then
+			cclog("Wrong Node");
+			return false;
+		end
+		
+		p.m_pScene:addChild(pNode,10);
 		p.m_pScene:addChild(pMap,-10);
 		
 	end
+	
 	return true;
 end
 
