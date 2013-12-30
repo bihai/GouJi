@@ -82,24 +82,15 @@ function p:sortCards()
 	local fBeforeSort = os.clock();
 	local fAfterSort = 0.0;
 	
-	for i = 1,table.getn(self.m_vecOwnCards) do
-		local pTempCard = nil;
-		local nTempPos = 0;
-		
-		for j = i + 1,table.getn(self.m_vecOwnCards) do
-			if nil == pTempCard or self.m_vecOwnCards[j]:getNumber() < pTempCard:getNumber() then
-				pTempCard = self.m_vecOwnCards[j];
-				nTempPos = j;
-			end
-		end
-		
-		self.m_vecOwnCards[nTempPos] = self.m_vecOwnCards[i];
-		self.m_vecOwnCards[i] = pTempCard;
-	end
-	
 	fAfterSort = os.clock();
 	
 	cclog(string.format("Sort Time Is %f",fAfterSort - fBeforeSort));
+	
+	pSortFunc = function(a,b)
+		return a:getNumber() < b:getNumber()
+	end
+	
+	table.sort(self.m_vecOwnCards,pSortFunc);
 	
 	for i = 1,table.getn(self.m_vecOwnCards) do
 		local nCardType = self.m_vecOwnCards[i]:getCardType();
