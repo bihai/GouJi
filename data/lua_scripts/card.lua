@@ -8,7 +8,7 @@
 card = {};
 local p = card;
 
-function p:new()	
+function p:new()
 	o = {};
 	setmetatable( o, self );
 	self.__index = self;
