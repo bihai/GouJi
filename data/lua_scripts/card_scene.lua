@@ -8,6 +8,8 @@
 require "background_map";
 require "card_manager";
 require "role_manager";
+require "card_util";
+require "card_ai";
 
 card_scene = card_scene or {};
 local p = card_scene;
@@ -54,8 +56,39 @@ end
 
 function p.beginGame()
 	if p.m_bSingle then
-		p.toDeal();
+		if false == p.toDeal() then
+			cclog("DEAL FAILED!");
+			return false;
+		end
+		
+		local pRole = role_manager.nextRole();
+		
+		if nil == pRole then
+			cclog("GET NEXT ROLE ERROR!");
+			return false;
+		end
+		
+		local vecCards = pRole:getCards();
+		
+		if 0 >= table.getn(vecCards) then
+			cclog("THIS PLAYER NO CARDS!");
+			return false;
+		end
+		
+		local vecPay = {};
+		local vecList = card_ai.getNuts(vecPay,vecCards);
+		
+		if 0 == table.getn(vecList) then
+			cclog("GET NULL NUTS!");
+			return false;
+		end
+		
+		for k,v in ipairs(vecList) do
+			cclog("Good Cards: "..vecCards[v]:getNumber());
+		end
 	end
+	
+	return true;
 end
 
 function p.toDeal()
@@ -84,8 +117,13 @@ function p.toDeal()
 	until nil == pCard
 	
 	for k,v in ipairs(vecList) do
-		v:showCards();
-		cclog("\n\n\n");
+		if false == v:sortCards() then
+			cclog("ERROR SORT CARDS");
+			return false;
+		end
+		
+		--v:showCards();
+		--cclog("\n\n");
 	end
 	
 	return true;

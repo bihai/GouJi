@@ -14,6 +14,8 @@ local p = role_manager;
 
 p.m_vecRoleList = {};
 p.m_pPlayer = nil;
+p.m_nIndex = 1;
+p.m_bEnable = true;
 
 function p.initialise(bSingleMode)
 	if 0 ~= table.getn(p.m_vecRoleList) or nil ~= p.m_pPlayer then
@@ -25,6 +27,12 @@ function p.initialise(bSingleMode)
 	end
 	
 	return p.initSingleMode();
+end
+
+function p.reset()
+	p.m_vecRoleList = {};
+	p.m_pPlayer = nil;
+	p.m_nIndex = 1;
 end
 
 function p.initSingleMode()
@@ -51,6 +59,25 @@ function p.initSingleMode()
 	return true;
 end
 
+function p.getEnable()
+	return p.m_bEnable;
+end
+
+function p.setEnable(bVar)
+	p.m_bEnable = bVar;
+end
+
 function p.getRoleList()
 	return p.m_vecRoleList;
+end
+
+function p:nextRole()
+	if p.m_nIndex > table.getn(p.m_vecRoleList) then
+		p.m_nIndex = 1;
+	end
+	
+	local pRole = p.m_vecRoleList[p.m_nIndex];
+	p.m_nIndex = p.m_nIndex + 1;
+	
+	return pRole;
 end

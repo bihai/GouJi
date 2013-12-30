@@ -8,7 +8,7 @@
 card_role = {}
 local p = card_role;
 
-function p:new()	
+function p:new()
 	o = {};
 	setmetatable( o, self );
 	self.__index = self;
@@ -33,6 +33,10 @@ function p:initialise(strName)
 	return true;
 end
 
+function p:getCards()
+	return self.m_vecOwnCards;
+end
+
 function p:showCards()
 	cclog(self.m_strName.." has "..#self.m_vecOwnCards.." cards");
 	
@@ -41,9 +45,15 @@ function p:showCards()
 		return false;
 	end
 	
-	if false == self:sortCards() then
-		cclog("ERROR SORT CARDS");
-		return false;
+	for i = 1,table.getn(self.m_vecOwnCards) do
+		local nCardType = self.m_vecOwnCards[i]:getCardType();
+		local strType = "";
+		
+		if 0 ~= nCardType then
+			strType = card_define.CARD_TYPE[nCardType];
+		end
+		
+		cclog(self.m_vecOwnCards[i]:getNumber());
 	end
 	
 	return true;
@@ -64,44 +74,5 @@ function p:sortCards()
 		return false;
 	end
 	
-	if 0 == table.getn(self.m_vecOwnCards) then
-		return false;
-	end
-	
-	for i = 1,table.getn(self.m_vecOwnCards) do
-		local nCardType = self.m_vecOwnCards[i]:getCardType();
-		local strType = "";
-		
-		if 0 ~= nCardType then
-			strType = card_define.CARD_TYPE[nCardType];
-		end
-		
-		cclog(self.m_vecOwnCards[i]:getNumber());
-	end
-	
-	local fBeforeSort = os.clock();
-	local fAfterSort = 0.0;
-	
-	fAfterSort = os.clock();
-	
-	cclog(string.format("Sort Time Is %f",fAfterSort - fBeforeSort));
-	
-	pSortFunc = function(a,b)
-		return a:getNumber() < b:getNumber()
-	end
-	
-	table.sort(self.m_vecOwnCards,pSortFunc);
-	
-	for i = 1,table.getn(self.m_vecOwnCards) do
-		local nCardType = self.m_vecOwnCards[i]:getCardType();
-		local strType = "";
-		
-		if 0 ~= nCardType then
-			strType = card_define.CARD_TYPE[nCardType];
-		end
-		
-		cclog(self.m_vecOwnCards[i]:getNumber());
-	end
-	
-	return true;
+	return card_util.sortCards(self.m_vecOwnCards);
 end
