@@ -68,9 +68,6 @@ function p:sortCards()
 		return false;
 	end
 	
-	local fBeforeSort = os.clock();
-	local fAfterSort = 0.0;
-	
 	for i = 1,table.getn(self.m_vecOwnCards) do
 		local nCardType = self.m_vecOwnCards[i]:getCardType();
 		local strType = "";
@@ -79,19 +76,25 @@ function p:sortCards()
 			strType = card_define.CARD_TYPE[nCardType];
 		end
 		
-		cclog(strType..self.m_vecOwnCards[i]:getNumber());
+		cclog(self.m_vecOwnCards[i]:getNumber());
 	end
 	
-	for j = 1,table.getn(self.m_vecOwnCards) do
-		for i = j,table.getn(self.m_vecOwnCards) - 1 do
-			local pPreCard = self.m_vecOwnCards[i];
-			local pPostCard = self.m_vecOwnCards[i + 1];
-			
-			if pPreCard:getNumber() < pPostCard:getNumber() then
-				self.m_vecOwnCards[i] = pPostCard;
-				self.m_vecOwnCards[i + 1] = pPreCard;
+	local fBeforeSort = os.clock();
+	local fAfterSort = 0.0;
+	
+	for i = 1,table.getn(self.m_vecOwnCards) do
+		local pTempCard = nil;
+		local nTempPos = 0;
+		
+		for j = i + 1,table.getn(self.m_vecOwnCards) do
+			if nil == pTempCard or self.m_vecOwnCards[j]:getNumber() < pTempCard:getNumber() then
+				pTempCard = self.m_vecOwnCards[j];
+				nTempPos = j;
 			end
 		end
+		
+		self.m_vecOwnCards[nTempPos] = self.m_vecOwnCards[i];
+		self.m_vecOwnCards[i] = pTempCard;
 	end
 	
 	fAfterSort = os.clock();
@@ -106,7 +109,7 @@ function p:sortCards()
 			strType = card_define.CARD_TYPE[nCardType];
 		end
 		
-		cclog(strType..self.m_vecOwnCards[i]:getNumber());
+		cclog(self.m_vecOwnCards[i]:getNumber());
 	end
 	
 	return true;
