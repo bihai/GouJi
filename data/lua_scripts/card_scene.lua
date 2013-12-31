@@ -60,32 +60,6 @@ function p.beginGame()
 			cclog("DEAL FAILED!");
 			return false;
 		end
-		
-		local pRole = role_manager.nextRole();
-		
-		if nil == pRole then
-			cclog("GET NEXT ROLE ERROR!");
-			return false;
-		end
-		
-		local vecCards = pRole:getCards();
-		
-		if 0 >= table.getn(vecCards) then
-			cclog("THIS PLAYER NO CARDS!");
-			return false;
-		end
-		
-		local vecPay = {};
-		local vecList = card_ai.getNuts(vecPay,vecCards);
-		
-		if 0 == table.getn(vecList) then
-			cclog("GET NULL NUTS!");
-			return false;
-		end
-		
-		for k,v in ipairs(vecList) do
-			cclog("Good Cards: "..vecCards[v]:getNumber());
-		end
 	end
 	
 	return true;
@@ -122,8 +96,7 @@ function p.toDeal()
 			return false;
 		end
 		
-		--v:showCards();
-		--cclog("\n\n");
+		v:showCards();
 	end
 	
 	return true;

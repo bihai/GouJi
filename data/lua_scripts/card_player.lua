@@ -26,3 +26,9 @@ end
 function p:initialise(strName)
 	return super.initialise(self,strName);
 end
+
+function p:showCards()
+	card_util.computeCardsSize(self.m_vecOwnCards,8);
+	
+	return super.showCards(self);
+end

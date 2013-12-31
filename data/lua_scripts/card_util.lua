@@ -65,3 +65,38 @@ function p.getCardGroup(vecCards,nCount,bOverNumber)
 	
 	return vecGroup;
 end
+
+function p.getWinSize()
+	return CCDirector:sharedDirector():getWinSize();
+end
+
+function p.getWinSizeInPixels()
+	return CCDirector:sharedDirector():getWinSizeInPixels();
+end
+
+function p.computeCardsSize(vecCards,nPixel)
+	if nil == vecCards or type(vecCards) ~= "table" then
+		cclog("computeCardsSize failed");
+		return false;
+	end
+
+	local fTotalWidth = 0;
+	local fTotalHeight = 0;
+	local fX = 0;
+	local fY = 0;
+	
+	for k,v in ipairs(vecCards) do
+		local pSize = v:getBoundingBoxSize();
+		fTotalWidth = fTotalWidth + pSize.size.width + nPixel;
+		fTotalHeight = math.max(fTotalHeight,pSize.size.height);
+	end
+	
+	fTotalWidth = fTotalWidth - nPixel;
+	local pWinSize = p.getWinSize();
+	local pPixelSize = p.getWinSizeInPixels();
+	
+	cclog("WinSize Is "..pWinSize.width.." "..pWinSize.height);
+	cclog("PixelSize Is "..pPixelSize.width.." "..pPixelSize.height);
+	
+	return true;
+end

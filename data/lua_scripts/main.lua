@@ -13,6 +13,7 @@ end
 local function main()
 	require "common_func";
 	
+	math.randomseed(os.time());
 	local kMainLayer = MainScene.initMainUI();
 
 	if nil == kMainLayer then

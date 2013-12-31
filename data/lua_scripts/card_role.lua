@@ -38,7 +38,7 @@ function p:getCards()
 end
 
 function p:showCards()
-	cclog(self.m_strName.." has "..#self.m_vecOwnCards.." cards");
+	cclog("\n\n"..self.m_strName.." has "..#self.m_vecOwnCards.." cards");
 	
 	if nil == self.m_vecOwnCards then
 		cclog("THIS PLAYER iS NO CARDS");

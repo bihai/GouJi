@@ -57,6 +57,14 @@ function p:initialise(nType,nNumber,fScale)
 	return true;
 end
 
+function p:getContentSize()
+	return self.m_pSprite:getContentSize()
+end
+
+function p:getBoundingBoxSize()
+	return self.m_pSprite:boundingBox();
+end
+
 function p:getSkin()
 	return self.m_bSkin;
 end
