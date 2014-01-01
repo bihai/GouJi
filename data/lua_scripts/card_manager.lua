@@ -38,7 +38,7 @@ function p.initCards(nCount)
 				if false == pCard:initialise(j + 1,nNum) then
 					return false;
 				end
-
+				
 				p.addCardToNode(pCard);
 			end
 		end

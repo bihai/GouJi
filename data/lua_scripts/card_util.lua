@@ -83,16 +83,18 @@ function p.computeCardsSize(vecCards,nPixel)
 	local pRetRect = nil;
 	local fTotalWidth = 0;
 	local fTotalHeight = 0;
+	local fCardWidth = 0;
 	local fX = 0;
 	local fY = 0;
 	
-	for k,v in ipairs(vecCards) do
-		local pSize = v:getBoundingBoxSize();
+	for i = 1,table.getn(vecCards) - 1 do
+		local pSize = vecCards[i]:getBoundingBoxSize();
 		fTotalWidth = fTotalWidth + nPixel;
 		fTotalHeight = math.max(fTotalHeight,pSize.size.height);
+		fCardWidth = pSize.size.width;
 	end
 	
-	fTotalWidth = fTotalWidth - nPixel;
+	fTotalWidth = fTotalWidth + fCardWidth;
 	local pWinSize = p.getWinSize();
 	local pPixelSize = p.getWinSizeInPixels();
 	
@@ -102,7 +104,49 @@ function p.computeCardsSize(vecCards,nPixel)
 	
 	pRetRect = CCRectMake(fX,fY,fTotalWidth,fTotalHeight);
 	
-	cclog("WinSize Is "..pRetRect.origin.x.." "..pRetRect.origin.y.." "..pRetRect.size.width.." "..pRetRect.size.height);
+	--cclog("Cards Size Is "..pRetRect.origin.x.." "..pRetRect.origin.y.." "..pRetRect.size.width.." "..pRetRect.size.height);
 	
 	return pRetRect;
+end
+
+function p.isTouchInRect(x,y,pRect)
+	if nil == pRect or nil == x or nil == y then
+		cclog("nil rect or nil x nil y");
+		return false;
+	end
+	
+	local fRight = pRect.size.width + pRect.origin.x;
+	local fTop = pRect.size.height + pRect.origin.y;
+	
+	if x < pRect.origin.x or y < pRect.origin.y or x > fRight or y > fTop then
+		return false;
+	end
+	
+	return true;
+end
+
+function p.getTouchInCardRect(x,y,vecOwnerCards)
+	local pCard = nil;
+	
+	if nil == x or nil == y or nil == vecOwnerCards or 0 == table.getn(vecOwnerCards) then
+		return nil;
+	end
+	
+	local pRect = p.computeCardsSize(vecOwnerCards,card_define.CARD_SPACE);
+	
+	if nil == pRect then
+		return nil;
+	end
+	
+	for k = table.getn(vecOwnerCards),1,-1 do
+		local v = vecOwnerCards[k];
+		local pCardRect = v:getBoundingBoxSize();
+		
+		if true == p.isTouchInRect(x,y,pCardRect) then
+			cclog(v:getNumber().." is touched");
+			return v;
+		end
+	end
+	
+	return nil;
 end

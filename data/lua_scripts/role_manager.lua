@@ -35,6 +35,10 @@ function p.reset()
 	p.m_nIndex = 1;
 end
 
+function p.getPlayer()
+	return p.m_pPlayer;
+end
+
 function p.initSingleMode()
 	for i = 1,card_define.ROLE_MAX - 1 do
 		local pNPC = card_npc:new();

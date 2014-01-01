@@ -24,6 +24,7 @@ function p:ctor()
 	self.m_pPosition = nil;
 	self.m_nType = 0;
 	self.m_strCardTexture = nil;
+	self.m_bIsPoped = false;
 end
 
 function p:free()
@@ -43,6 +44,7 @@ function p:initialise(nType,nNumber,fScale)
 	end
 	
 	self.m_pSprite = CCSprite:createWithSpriteFrameName(self.m_strCardTexture);
+	self:setAnchorPoint(ccp(0,0));
 	
 	if nil == self.m_pSprite then
 		cclog("m_pSprite == nil");
@@ -107,6 +109,26 @@ end
 
 function p:getSprite()
 	return self.m_pSprite;
+end
+
+function p:setAnchorPoint(pPoint)
+	self.m_pSprite:setAnchorPoint(pPoint)
+end
+
+function p:setPop()
+	local pSize = self:getBoundingBoxSize();
+	
+	if self.m_bIsPoped then
+		self:setYByVector(0 - pSize.size.height * card_define.CARD_POP_PERCENT);
+		self.m_bIsPoped = false;
+	else
+		self:setYByVector(pSize.size.height * card_define.CARD_POP_PERCENT);
+		self.m_bIsPoped = true;
+	end
+end
+
+function p:setYByVector(y)
+	self.m_pSprite:setPosition(ccp(self.m_pSprite:getPositionX(),self.m_pSprite:getPositionY() + y));
 end
 
 function p:setPos(pPos)

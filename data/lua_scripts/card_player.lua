@@ -34,6 +34,26 @@ function p:turnCards(preList)
 	
 end
 
+function p:getTouchedCard(x,y)
+	local pRect = nil;
+	local pCard = nil;
+	
+	pRect = card_util.computeCardsSize(self.m_vecOwnCards,card_define.CARD_SPACE);
+	
+	if nil == pRect then
+		cclog("Player card rect is nil");
+		return nil;
+	end
+	
+	pCard = card_util.getTouchInCardRect(x,y,self.m_vecOwnCards);
+	
+	if nil == pCard then
+		return nil;
+	end
+	
+	return pCard;
+end
+
 function p:showCards()
 	if false == super.showCards(self) then
 		return false;

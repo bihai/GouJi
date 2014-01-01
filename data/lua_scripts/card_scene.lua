@@ -148,13 +148,29 @@ function p.onTouch(eventType, x, y)
 end
 
 function p.onTouchBegan(x, y)
-	cclog("Touch Began: "..x.." "..y);
+	local pPlayer = role_manager.getPlayer();
+	
+	if nil == pPlayer then
+		return false;
+	end
+	
+	local pCard = pPlayer:getTouchedCard(x,y);
+	
+	if nil == pCard then
+		return false;
+	end
+	
+	pCard:setPop();
+	
+	return true;
 end
 
 function p.onTouchEnded(x, y)
+	return true;
 end
 
 function p.onTouchMoved(x, y)
+	return true;
 end
 
 function p.getScene()
