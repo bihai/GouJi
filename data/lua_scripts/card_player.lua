@@ -23,12 +23,30 @@ function p:ctor()
 	self.m_nRoleType = card_define.PLAYER;
 end
 
+function p:free()
+end
+
 function p:initialise(strName)
 	return super.initialise(self,strName);
 end
 
 function p:showCards()
-	card_util.computeCardsSize(self.m_vecOwnCards,8);
+	local pSize = card_util.computeCardsSize(self.m_vecOwnCards,12);
+
+	if nil == pSize then
+		return false;
+	end
+	
+	local x = pSize.origin.x;
+	local y = pSize.origin.y;
+	local nTempX = x;
+	
+	for k,v in ipairs(self.m_vecOwnCards) do
+		v:setPos(ccp(nTempX,y));
+		v:setVisible(true);
+		v:reOrder(k);
+		nTempX = nTempX + 12;
+	end
 	
 	return super.showCards(self);
 end

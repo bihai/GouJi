@@ -26,6 +26,10 @@ function p:ctor()
 	self.m_strCardTexture = nil;
 end
 
+function p:free()
+	self.m_pSprite:removeFromParentAndCleanup(true);
+end
+
 function p:initialise(nType,nNumber,fScale)
 	self.m_nNumber = nNumber;
 	self.m_nType = nType;
@@ -57,6 +61,10 @@ function p:initialise(nType,nNumber,fScale)
 	return true;
 end
 
+function p:setVisible(bVar)
+	self.m_pSprite:setVisible(bVar);
+end
+
 function p:getContentSize()
 	return self.m_pSprite:getContentSize()
 end
@@ -71,6 +79,10 @@ end
 
 function p:getCardType()
 	return self.m_nType;
+end
+
+function p:setZ(nZ)
+	self.m_pSprite:setZOrder(nZ)
 end
 
 function p:getNumber()
@@ -95,6 +107,23 @@ end
 
 function p:getSprite()
 	return self.m_pSprite;
+end
+
+function p:setPos(pPos)
+	self.m_pSprite:setPosition(pPos);
+end
+
+function p:reOrder(nZ)
+	local pParent = self.m_pSprite:getParent();
+	
+	if nil == pParent then
+		cclog("Wrong Parent");
+		return false;
+	end
+	
+	pParent:reorderChild(self.m_pSprite,nZ);
+	
+	return true;
 end
 
 function p:setTilePos(pPos)

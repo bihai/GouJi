@@ -13,3 +13,4 @@ p.CARD_TYPE = {"hei_","hong_","hua_","pian_"};
 p.ROLE_PLAYER = 0x000000ff;
 p.ROLE_NPC = 0x00000011;
 p.ROLE_MAX = 6;
+p.PLAYER_CARDS_Y = 50.0;

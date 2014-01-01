@@ -22,6 +22,12 @@ function p:ctor()
 	self.m_nRoleType = 0;
 end
 
+function p:free()
+	for k,v in ipairs(vecCards) do
+		v:free();
+	end
+end
+
 function p:initialise(strName)
 	if nil == strName then
 		cclog("Null Name");

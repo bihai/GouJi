@@ -77,9 +77,10 @@ end
 function p.computeCardsSize(vecCards,nPixel)
 	if nil == vecCards or type(vecCards) ~= "table" then
 		cclog("computeCardsSize failed");
-		return false;
+		return nil;
 	end
 
+	local pRetRect = nil;
 	local fTotalWidth = 0;
 	local fTotalHeight = 0;
 	local fX = 0;
@@ -87,7 +88,7 @@ function p.computeCardsSize(vecCards,nPixel)
 	
 	for k,v in ipairs(vecCards) do
 		local pSize = v:getBoundingBoxSize();
-		fTotalWidth = fTotalWidth + pSize.size.width + nPixel;
+		fTotalWidth = fTotalWidth + nPixel;
 		fTotalHeight = math.max(fTotalHeight,pSize.size.height);
 	end
 	
@@ -95,8 +96,13 @@ function p.computeCardsSize(vecCards,nPixel)
 	local pWinSize = p.getWinSize();
 	local pPixelSize = p.getWinSizeInPixels();
 	
-	cclog("WinSize Is "..pWinSize.width.." "..pWinSize.height);
-	cclog("PixelSize Is "..pPixelSize.width.." "..pPixelSize.height);
+	local fMidWidth = pWinSize.width / 2.0;
+	fX = fMidWidth - fTotalWidth / 2.0;
+	fY = card_define.PLAYER_CARDS_Y;
 	
-	return true;
+	pRetRect = CCRectMake(fX,fY,fTotalWidth,fTotalHeight);
+	
+	cclog("WinSize Is "..pRetRect.origin.x.." "..pRetRect.origin.y.." "..pRetRect.size.width.." "..pRetRect.size.height);
+	
+	return pRetRect;
 end
