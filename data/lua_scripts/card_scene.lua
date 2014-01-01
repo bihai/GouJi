@@ -15,6 +15,7 @@ card_scene = card_scene or {};
 local p = card_scene;
 
 p.m_pScene = nil;
+p.m_pCardsLayer = nil;
 p.m_bSingle = true;
 
 function p.init(bSingle)
@@ -25,6 +26,11 @@ function p.init(bSingle)
 	
 	if p.m_pScene == nil then 
 		p.m_pScene = CCScene:create();
+		p.m_pCardsLayer = CCLayer:create();
+		p.m_pScene:addChild(p.m_pCardsLayer,1);
+		
+		p.m_pCardsLayer:registerScriptTouchHandler(p.onTouch)
+		p.m_pCardsLayer:setTouchEnabled(true)
 		
 		background_map.initMap();
 		local pMap = background_map.getMap();
@@ -41,8 +47,8 @@ function p.init(bSingle)
 			return false;
 		end
 		
-		p.m_pScene:addChild(pNode,10);
-		p.m_pScene:addChild(pMap,-10);
+		p.m_pCardsLayer:addChild(pNode,10);
+		p.m_pCardsLayer:addChild(pMap,-10);
 	end
 	
 	if false == role_manager.initialise(true) then
@@ -57,6 +63,8 @@ end
 function p.reset()
 	p.m_pScene = nil;
 	p.m_bSingle = true;
+	p.m_pCardsLayer:removeAllChildrenWithCleanup(true);
+	p.m_pCardsLayer = nil;
 end
 
 function p.beginGame()
@@ -127,6 +135,26 @@ function p.toDeal()
 	until nil == pCard
 	
 	return true;
+end
+
+function p.onTouch(eventType, x, y)
+	if eventType == "began" then   
+		return p.onTouchBegan(x, y)
+	elseif eventType == "moved" then
+		return p.onTouchMoved(x, y)
+	else
+		return p.onTouchEnded(x, y)
+	end
+end
+
+function p.onTouchBegan(x, y)
+	cclog("Touch Began: "..x.." "..y);
+end
+
+function p.onTouchEnded(x, y)
+end
+
+function p.onTouchMoved(x, y)
 end
 
 function p.getScene()
