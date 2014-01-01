@@ -50,7 +50,7 @@ function p:initialise(nType,nNumber,fScale)
 	end
 	
 	if nil == fScale then
-		self.m_pSprite:setScale(0.5);
+		self.m_pSprite:setScale(0.7);
 	else
 		self.m_pSprite:setScale(fScale);
 	end

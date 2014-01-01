@@ -31,7 +31,7 @@ function p:initialise(strName)
 end
 
 function p:showCards()
-	local pSize = card_util.computeCardsSize(self.m_vecOwnCards,12);
+	local pSize = card_util.computeCardsSize(self.m_vecOwnCards,card_define.CARD_SPACE);
 
 	if nil == pSize then
 		return false;
@@ -45,7 +45,7 @@ function p:showCards()
 		v:setPos(ccp(nTempX,y));
 		v:setVisible(true);
 		v:reOrder(k);
-		nTempX = nTempX + 12;
+		nTempX = nTempX + card_define.CARD_SPACE;
 	end
 	
 	return super.showCards(self);
