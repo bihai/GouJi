@@ -59,6 +59,23 @@ function p.initSingleMode()
 	return true;
 end
 
+function p.turn(vecPreCards)
+	local pRole = p.nextRole();
+	local pCardsList = {};
+
+	if nil == pRole or nil == vecPreCards then
+		return nil;
+	end
+	
+	pCardsList = pRole:turnCards(vecPreCards);
+	
+	if nil == pCardsList then
+		return nil;
+	end
+	
+	return pCardsList;
+end
+
 function p.getEnable()
 	return p.m_bEnable;
 end

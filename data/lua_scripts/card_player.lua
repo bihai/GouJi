@@ -30,7 +30,15 @@ function p:initialise(strName)
 	return super.initialise(self,strName);
 end
 
+function p:turnCards(preList)
+	
+end
+
 function p:showCards()
+	if false == super.showCards(self) then
+		return false;
+	end
+	
 	local pSize = card_util.computeCardsSize(self.m_vecOwnCards,card_define.CARD_SPACE);
 
 	if nil == pSize then
@@ -48,5 +56,5 @@ function p:showCards()
 		nTempX = nTempX + card_define.CARD_SPACE;
 	end
 	
-	return super.showCards(self);
+	return true;
 end

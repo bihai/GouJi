@@ -22,6 +22,34 @@ function p:ctor()
 	self.m_nRoleType = card_define.ROLE_NPC;
 end
 
+function p:turnCards(preList)
+	if nil == preList then
+		cclog("turncards get preList is nil,do you copy?");
+		return nil;
+	end
+	
+	local vecRetPos = card_ai.getNuts(preList,self.m_vecOwnCards);
+	
+	if nil == vecRetPos or type(vecRetPos) ~= "table" then
+		return nil;
+	end
+	
+	local vecCards = {};
+	
+	for k,v in ipairs(vecRetPos) do
+		local pCard = self.m_vecOwnCards[v];
+		table.remove(self.m_vecOwnCards[v]);
+		
+		if nil == pCard then
+			return false;
+		end
+		
+		table.insert(vecCards,pCard);
+	end
+	
+	return vecCards;
+end
+
 function p:initialise(strName)
 	if nil == strName then
 		cclog("NULL NAME!");

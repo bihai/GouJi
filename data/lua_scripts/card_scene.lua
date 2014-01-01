@@ -54,12 +54,48 @@ function p.init(bSingle)
 	return true;
 end
 
+function p.reset()
+	p.m_pScene = nil;
+	p.m_bSingle = true;
+end
+
 function p.beginGame()
 	if p.m_bSingle then
 		if false == p.toDeal() then
 			cclog("DEAL FAILED!");
 			return false;
 		end
+		
+		local vecList = role_manager.getRoleList();
+		
+		if nil == vecList or 0 == table.getn(vecList) then
+			cclog("vecList error! Size is "..#vecList);
+			return false;
+		end
+		
+		for k,v in ipairs(vecList) do
+			v:showCards();
+		end
+		
+		local pPre = {};
+		local pCards = role_manager.turn(pPre);
+		
+		if nil == pCards then
+			cclog("TURN ERROR");
+			return false;
+		end
+		
+		p.showCards(pCards);
+		card_manager.addCardsToOpenList(pCards);
+	end
+	
+	return true;
+end
+
+function p.showCards(vecList)
+	for k,v in ipairs(vecList) do
+		v:setPos(ccp(240 - k * 50,160));
+		v:setVisible(true);
 	end
 	
 	return true;
@@ -89,15 +125,6 @@ function p.toDeal()
 		
 		nIndex = nIndex + 1;
 	until nil == pCard
-	
-	for k,v in ipairs(vecList) do
-		if false == v:sortCards() then
-			cclog("ERROR SORT CARDS");
-			return false;
-		end
-		
-		v:showCards();
-	end
 	
 	return true;
 end

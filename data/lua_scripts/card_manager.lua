@@ -26,7 +26,7 @@ function p.initCards(nCount)
 	if nil == p.m_pCardTexture then
 		cclog("Wrong Key!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	end
-		
+
 	p.m_pCardNode = CCSpriteBatchNode:createWithTexture(p.m_pCardTexture);
 	
 	for t = 1,nCount do
@@ -82,6 +82,18 @@ function p.getRandCardFromList()
 	table.remove(p.m_vecRemainCards,nPos);
 	
 	return pCard;
+end
+
+function p.addCardsToOpenList(vecCards)
+	if nil == vecCards or 0 == table.getn(vecCards) then
+		return false;
+	end
+
+	for k,v in ipairs(vecCards) do
+		table.insert(p.m_vecRemainCards,v);
+	end
+	
+	return true;
 end
 
 function p.addCardToNode(pCard)

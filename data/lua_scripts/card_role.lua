@@ -46,6 +46,10 @@ end
 function p:showCards()
 	cclog("\n\n"..self.m_strName.." has "..#self.m_vecOwnCards.." cards");
 	
+	if false == self:sortCards() then
+		return false;
+	end
+	
 	if nil == self.m_vecOwnCards then
 		cclog("THIS PLAYER iS NO CARDS");
 		return false;
@@ -63,6 +67,11 @@ function p:showCards()
 	end
 	
 	return true;
+end
+
+function p:turnCards(preList)
+	cclog("THIS IS VERSUAL FUNCTION! NOT IMPLEMENTS!");
+	return nil;
 end
 
 function p:addCard(pCard)
