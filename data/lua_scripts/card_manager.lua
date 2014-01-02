@@ -11,9 +11,11 @@ card_manager = card_manager or {};
 local p = card_manager;
 
 p.m_vecRemainCards = {};
+p.m_vecPreCards = {};
 p.m_pScene = nil;
 p.m_pCardNode = nil;
 p.m_pCardTexture = nil;
+p.m_pCardsFunction = nil;
 
 function p.initCards(nCount)
 	if nil ~= p.m_pCardNode or 1 > nCount then
@@ -63,6 +65,34 @@ function p.initCards(nCount)
 	return p.m_pCardNode;
 end
 
+function p.registerCardsCallback(pFunction)
+	p.m_pCardsFunction = pFunction;
+end
+
+function p.checkRule(vecCardList)
+	return true;
+end
+
+function p.roleCards(vecCardList)
+	if nil == vecCardList then
+		return false;
+	end
+	
+	if false == p.checkRule(vecCardList) then
+		return false;
+	end
+	
+	p.addCardsToOpenList(vecCardList);
+
+	if nil ~= p.m_pCardsFunction then
+		p.m_pCardsFunction(vecCardList);
+	end
+
+	role_manager.turn(vecCardList);
+	
+	return true;
+end
+
 function p.getRandCardFromList()
 	local nCardCount = table.getn(p.m_vecRemainCards);
 	local pCard = nil;
@@ -85,12 +115,15 @@ function p.getRandCardFromList()
 end
 
 function p.addCardsToOpenList(vecCards)
+	p.m_vecPreCards = {};	
+	
 	if nil == vecCards or 0 == table.getn(vecCards) then
 		return false;
 	end
 
 	for k,v in ipairs(vecCards) do
 		table.insert(p.m_vecRemainCards,v);
+		table.insert(p.m_vecPreCards,v);
 	end
 	
 	return true;

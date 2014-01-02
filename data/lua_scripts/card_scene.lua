@@ -14,9 +14,11 @@ require "card_ai";
 card_scene = card_scene or {};
 local p = card_scene;
 
+p.m_vecShowCards = {};
 p.m_pScene = nil;
 p.m_pCardsLayer = nil;
 p.m_bSingle = true;
+p.m_vecPlayerSelected = {};
 
 function p.init(bSingle)
 	if false == bSingle then
@@ -29,8 +31,21 @@ function p.init(bSingle)
 		p.m_pCardsLayer = CCLayer:create();
 		p.m_pScene:addChild(p.m_pCardsLayer,1);
 		
-		p.m_pCardsLayer:registerScriptTouchHandler(p.onTouch)
-		p.m_pCardsLayer:setTouchEnabled(true)
+		p.m_pCardsLayer:registerScriptTouchHandler(p.onTouch);
+		p.m_pCardsLayer:setTouchEnabled(true);
+		
+		--以下是UI测试代码------------------------------------------
+		local testLabel = CCLabelTTF:create("Cards", "Arial", 24);
+		local MainMenu = CCMenu:create()
+		local testMenuItem = CCMenuItemLabel:create(testLabel);
+		testMenuItem:registerScriptTapHandler(p.menuCallback);
+		testMenuItem:setPosition(ccp(0,0));
+		MainMenu:addChild(testMenuItem);
+		p.m_pCardsLayer:addChild(MainMenu);
+		MainMenu:setPosition(ccp(420,300));
+		------------------------------------------------------------
+		
+		--p.m_pScene:AddChild(menuLayer);
 		
 		background_map.initMap();
 		local pMap = background_map.getMap();
@@ -41,12 +56,13 @@ function p.init(bSingle)
 		end
 		
 		local pNode = card_manager.initCards(4);
+		card_manager.registerCardsCallback(p.showCards);
 		
 		if nil == pNode then
 			cclog("Wrong Node");
 			return false;
 		end
-		
+
 		p.m_pCardsLayer:addChild(pNode,10);
 		p.m_pCardsLayer:addChild(pMap,-10);
 	end
@@ -58,6 +74,13 @@ function p.init(bSingle)
 	p.beginGame();
 	
 	return true;
+end
+
+function p.menuCallback(tag)
+	if role_manager.getPlayer():getTurn() then
+	else
+		cclog("Your not turn");
+	end
 end
 
 function p.reset()
@@ -92,19 +115,28 @@ function p.beginGame()
 			cclog("TURN ERROR");
 			return false;
 		end
-		
-		p.showCards(pCards);
-		card_manager.addCardsToOpenList(pCards);
 	end
 	
 	return true;
 end
 
 function p.showCards(vecList)
+	if nil == vecList then
+		cclog("showCards nil");
+		return false;
+	end
+	
+	for k,v in ipairs(p.m_vecShowCards) do
+		v:setPos(ccp(-500,-500));
+		v:setVisible(false);
+	end
+	
 	for k,v in ipairs(vecList) do
 		v:setPos(ccp(240 - k * 50,160));
 		v:setVisible(true);
 	end
+	
+	p.m_vecShowCards = vecList;
 	
 	return true;
 end
@@ -150,7 +182,7 @@ end
 function p.onTouchBegan(x, y)
 	local pPlayer = role_manager.getPlayer();
 	
-	if nil == pPlayer then
+	if nil == pPlayer or false == pPlayer:getTurn() then
 		return false;
 	end
 	

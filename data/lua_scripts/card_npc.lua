@@ -47,6 +47,8 @@ function p:turnCards(preList)
 		table.insert(vecCards,pCard);
 	end
 	
+	card_manager.roleCards(vecCards);
+	
 	return vecCards;
 end
 

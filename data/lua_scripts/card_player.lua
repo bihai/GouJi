@@ -21,6 +21,7 @@ function p:ctor()
     super.ctor(self);
 	
 	self.m_nRoleType = card_define.PLAYER;
+	self.m_bTurn = false;
 end
 
 function p:free()
@@ -31,7 +32,22 @@ function p:initialise(strName)
 end
 
 function p:turnCards(preList)
+	cclog("Turn Your Cards");
+	self.m_bTurn = true;
+end
+
+function p:notifyCardsFromUI(vecCards)
+	if nil == vecCards then
+		return false;
+	end
 	
+	for k,v in ipairs(vecCards) do
+		table.remove(v);
+	end
+	
+	card_manager.roleCards(vecCards);
+	
+	return true;
 end
 
 function p:getTouchedCard(x,y)
@@ -77,4 +93,8 @@ function p:showCards()
 	end
 	
 	return true;
+end
+
+function p:getTurn()
+	return self.m_bTurn;
 end
