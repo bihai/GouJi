@@ -16,6 +16,7 @@ p.m_pScene = nil;
 p.m_pCardNode = nil;
 p.m_pCardTexture = nil;
 p.m_pCardsFunction = nil;
+p.m_strLastErrorMsg = nil;
 
 function p.initCards(nCount)
 	if nil ~= p.m_pCardNode or 1 > nCount then
@@ -69,8 +70,31 @@ function p.registerCardsCallback(pFunction)
 	p.m_pCardsFunction = pFunction;
 end
 
+function p.getLastErrorMsg()
+	return p.m_strLastErrorMsg;
+end
+
 function p.checkRule(vecCardList)
+	if nil == p.m_vecPreCards then
+		p.m_strLastErrorMsg = "空卡牌";
+		return false;
+	end
 	
+	if 0 == table.getn(vecCardList) or 0 == table.getn(p.m_vecPreCards) then
+		return true;
+	end
+	
+	for k,v in ipairs(vecCardList) do
+		if v ~= vecCardList[1] then
+			p.m_strLastErrorMsg = "应该出相同的卡牌";
+			return false;
+		end
+	end
+	
+	if vecCardList[1]:getNumber() <= p.m_vecPreCards[1]:getNumber() then
+		p.m_strLastErrorMsg = "出的数比对方小";
+		return false;
+	end
 	
 	return true;
 end
@@ -84,7 +108,9 @@ function p.roleCards(vecCardList)
 		return false;
 	end
 	
-	p.addCardsToOpenList(vecCardList);
+	if 0 ~= table.getn(vecCardList) then
+		p.addCardsToOpenList(vecCardList);
+	end
 
 	if nil ~= p.m_pCardsFunction then
 		p.m_pCardsFunction(vecCardList);

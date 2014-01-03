@@ -129,15 +129,16 @@ function p.showCards(vecList)
 		return false;
 	end
 	
-	for k,v in ipairs(p.m_vecShowCards) do
-		v:setPos(ccp(-500,-500));
-		v:setVisible(false);
-	end
-	
 	if 0 == table.getn(vecList) then
 		cclog("Pass");
 	else
+		for k,v in ipairs(p.m_vecShowCards) do
+			v:setPos(ccp(-500,-500));
+			v:setVisible(false);
+		end	
+	
 		for k,v in ipairs(vecList) do
+			cclog("fewafa");
 			v:setPos(ccp(240 - k * 50,160));
 			v:setVisible(true);
 		end
@@ -151,7 +152,6 @@ function p.showCards(vecList)
 end
 
 function p.onShowTimer(dt)
-	cclog("fewafaew");
 	--unschedule(p.m_pCardsLayer);
 	role_manager.turn(p.m_vecShowCards);
 end

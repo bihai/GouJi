@@ -47,8 +47,13 @@ function p:notifyCardsFromUI(vecCards)
 		table.remove(v);
 	end
 	
-	card_manager.roleCards(vecCards);
+	if false == card_manager.roleCards(vecCards) then
+		cclog(card_manager.getLastErrorMsg());
+		return false;
+	end
+	
 	self:showCards();
+	self.m_bTurn = false;
 	
 	return true;
 end

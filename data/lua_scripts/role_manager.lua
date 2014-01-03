@@ -17,6 +17,7 @@ p.m_pPlayer = nil;
 p.m_nIndex = 1;
 p.m_bEnable = true;
 p.m_pLastCardsRole = nil;
+p.m_pPreCardsPlayer = nil;
 
 function p.initialise(bSingleMode)
 	if 0 ~= table.getn(p.m_vecRoleList) or nil ~= p.m_pPlayer then
@@ -66,7 +67,12 @@ function p.initSingleMode()
 	return true;
 end
 
-function p.turn(vecPreCards)	
+function p.turn(vecPreCards)
+	if 0 ~= table.getn(vecPreCards) then
+		p.m_pLastCardsRole = p.m_pPreCardsPlayer;
+	end
+
+	
 	local pRole = p.nextRole();
 	local pCardsList = {};
 
@@ -74,18 +80,21 @@ function p.turn(vecPreCards)
 		return nil;
 	end
 	
-	if 0 ~= table.getn(vecPreCards) then
-		p.m_pLastCardsRole = pRole;
-	end
-	
-	if pRole:isWin() then
-		cclog(pRole:getName().." was win");
-	else
-		pCardsList = pRole:turnCards(vecPreCards);
-		
-		if nil == pCardsList then
-			return nil;
+	p.m_pPreCardsPlayer = pRole;
+	if pRole ~= p.m_pLastCardsRole then	
+		if pRole:isWin() then
+			cclog(pRole:getName().." was win");
+		else
+			pCardsList = pRole:turnCards(vecPreCards);
+			
+			if nil == pCardsList then
+				return nil;
+			end
 		end
+	else
+		cclog("没人管，重新出牌");
+		local vecTemp = {};
+		pCardsList = pRole:turnCards(vecTemp);
 	end
 	
 	return pCardsList;
