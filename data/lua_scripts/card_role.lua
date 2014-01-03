@@ -56,7 +56,7 @@ function p:getCards()
 end
 
 function p:showCards()
-	cclog("\n\n"..self.m_strName.." has "..#self.m_vecOwnCards.." cards");
+--	cclog("\n\n"..self.m_strName.." has "..#self.m_vecOwnCards.." cards");
 	
 	if false == self:sortCards() then
 		return false;
@@ -75,7 +75,7 @@ function p:showCards()
 			strType = card_define.CARD_TYPE[nCardType];
 		end
 		
-		cclog(self.m_vecOwnCards[i]:getNumber());
+		--cclog(self.m_vecOwnCards[i]:getNumber());
 	end
 	
 	return true;

@@ -1,8 +1,8 @@
 --------------------------------------------------------------
 -- FileName: 	role_manager.lua
--- author:		¹ùºÆ, 2013/12/30
--- purpose:		½ÇÉ«¹ÜÀíÀà£¨µ¥ÊµÀı£©
--- ×¢Òâ£º		Õâ¸öÀàÊÇµ¥Àı£¬×¢ÒâÓÃ·¨£¡
+-- author:		éƒ­æµ©, 2013/12/30
+-- purpose:		è§’è‰²ç®¡ç†ç±»ï¼ˆå•å®ä¾‹ï¼‰
+-- æ³¨æ„ï¼š		è¿™ä¸ªç±»æ˜¯å•ä¾‹ï¼Œæ³¨æ„ç”¨æ³•ï¼
 --------------------------------------------------------------
 
 require "card_role";
@@ -16,6 +16,7 @@ p.m_vecRoleList = {};
 p.m_pPlayer = nil;
 p.m_nIndex = 1;
 p.m_bEnable = true;
+p.m_pLastCardsRole = nil;
 
 function p.initialise(bSingleMode)
 	if 0 ~= table.getn(p.m_vecRoleList) or nil ~= p.m_pPlayer then
@@ -59,15 +60,22 @@ function p.initSingleMode()
 	
 	table.insert(p.m_vecRoleList,p.m_pPlayer);
 	
+	p.m_nIndex = math.random(1,table.getn(p.m_vecRoleList));
+	p.m_pLastCardsRole = p.m_vecRoleList[p.m_nIndex];
+	
 	return true;
 end
 
-function p.turn(vecPreCards)
+function p.turn(vecPreCards)	
 	local pRole = p.nextRole();
 	local pCardsList = {};
 
 	if nil == pRole or nil == vecPreCards then
 		return nil;
+	end
+	
+	if 0 ~= table.getn(vecPreCards) then
+		p.m_pLastCardsRole = pRole;
 	end
 	
 	if pRole:isWin() then
@@ -85,6 +93,10 @@ end
 
 function p.getEnable()
 	return p.m_bEnable;
+end
+
+function p.getLastCardsPlayer()
+	return p.m_vecRoleList;
 end
 
 function p.setEnable(bVar)

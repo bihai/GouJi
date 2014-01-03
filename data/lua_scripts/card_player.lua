@@ -1,8 +1,8 @@
 --------------------------------------------------------------
 -- FileName: 	card_player.lua
--- author:		¹ùºÆ, 2013/12/30
--- purpose:		Íæ¼ÒÀà£¨¶àÊµÀı£©
--- ×¢Òâ£º		Õâ¸öÀà»áÓĞ¶à¸öÊµÀı£¬×¢ÒâÓÃ·¨£¡
+-- author:		éƒ­æµ©, 2013/12/30
+-- purpose:		ç©å®¶ç±»ï¼ˆå¤šå®ä¾‹ï¼‰
+-- æ³¨æ„ï¼š		è¿™ä¸ªç±»ä¼šæœ‰å¤šä¸ªå®ä¾‹ï¼Œæ³¨æ„ç”¨æ³•ï¼
 --------------------------------------------------------------
 
 card_player = card_role:new();
@@ -32,7 +32,7 @@ function p:initialise(strName)
 end
 
 function p:turnCards(preList)
-	cclog("Turn Your Cards");
+	cclog("è½®åˆ°ä½ äº†ï¼");
 	self.m_bTurn = true;
 end
 

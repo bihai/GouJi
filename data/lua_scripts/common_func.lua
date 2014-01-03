@@ -1,7 +1,7 @@
 --------------------------------------------------------------
 -- FileName: 	common_func.lua
--- author:		¹ùºÆ, 2013/12/28
--- purpose:		²¹³äº¯ÊıÀà
+-- author:		éƒ­æµ©, 2013/12/28
+-- purpose:		è¡¥å……å‡½æ•°ç±»
 --------------------------------------------------------------
 
 cclog = function(...)
@@ -106,7 +106,7 @@ function class(classname, super)
     return cls
 end
 
---ÔËĞĞÒ»´Î
+--è¿è¡Œä¸€æ¬¡
 function schedule(node, callback, delay)
     local delay = CCDelayTime:create(delay)
     local callfunc = CCCallFunc:create(callback)
@@ -116,7 +116,7 @@ function schedule(node, callback, delay)
     return action
 end
 
---ÔËĞĞºÃ¶à´Î
+--è¿è¡Œå¥½å¤šæ¬¡
 function performWithDelay(node, callback, delay)
     local delay = CCDelayTime:create(delay)
     local callfunc = CCCallFunc:create(callback)

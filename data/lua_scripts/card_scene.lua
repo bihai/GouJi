@@ -1,8 +1,8 @@
 --------------------------------------------------------------
 -- FileName: 	card_scene.lua
--- author:		¹ùºÆ, 2013/12/28
--- purpose:		¿¨ÅÆ³¡¾°Àà£¨µ¥ÊµÀı£©
--- ×¢Òâ£º		Õâ¸öÀàÊÇµ¥Àı£¬×¢ÒâÓÃ·¨£¡
+-- author:		éƒ­æµ©, 2013/12/28
+-- purpose:		å¡ç‰Œåœºæ™¯ç±»ï¼ˆå•å®ä¾‹ï¼‰
+-- æ³¨æ„ï¼š		è¿™ä¸ªç±»æ˜¯å•ä¾‹ï¼Œæ³¨æ„ç”¨æ³•ï¼
 --------------------------------------------------------------
 
 require "background_map";
@@ -34,8 +34,8 @@ function p.init(bSingle)
 		p.m_pCardsLayer:registerScriptTouchHandler(p.onTouch);
 		p.m_pCardsLayer:setTouchEnabled(true);
 		
-		--ÒÔÏÂÊÇUI²âÊÔ´úÂë------------------------------------------
-		local testLabel = CCLabelTTF:create("Cards", "Arial", 24);
+		--ä»¥ä¸‹æ˜¯UIæµ‹è¯•ä»£ç ------------------------------------------
+		local testLabel = CCLabelTTF:create("å‡ºç‰Œ", "YaHei Consolas Hybrid", 24);
 		local MainMenu = CCMenu:create()
 		local testMenuItem = CCMenuItemLabel:create(testLabel);
 		testMenuItem:registerScriptTapHandler(p.menuCallback);
@@ -82,7 +82,7 @@ function p.menuCallback(tag)
 	if pPlayer:getTurn() then
 		pPlayer:notifyCardsFromUI(p.m_vecPlayerSelected);
 	else
-		cclog("Your not turn");
+		cclog("è¿˜æ²¡è½®åˆ°ä½ ï¼");
 	end
 end
 
@@ -134,12 +134,16 @@ function p.showCards(vecList)
 		v:setVisible(false);
 	end
 	
-	for k,v in ipairs(vecList) do
-		v:setPos(ccp(240 - k * 50,160));
-		v:setVisible(true);
+	if 0 == table.getn(vecList) then
+		cclog("Pass");
+	else
+		for k,v in ipairs(vecList) do
+			v:setPos(ccp(240 - k * 50,160));
+			v:setVisible(true);
+		end
+		
+		p.m_vecShowCards = vecList;
 	end
-	
-	p.m_vecShowCards = vecList;
 
 	performWithDelay(p.m_pCardsLayer,p.onShowTimer,2.0);
 	
