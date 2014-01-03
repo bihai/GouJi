@@ -150,3 +150,17 @@ function p.getTouchInCardRect(x,y,vecOwnerCards)
 	
 	return nil;
 end
+
+function p.isExistInList(vecList,pCard)
+	if nil == vecList then
+		return 0;
+	end
+	
+	for k,v in ipairs(vecList) do
+		if pCard == v then
+			return k;
+		end
+	end
+	
+	return 0;
+end

@@ -77,7 +77,10 @@ function p.init(bSingle)
 end
 
 function p.menuCallback(tag)
-	if role_manager.getPlayer():getTurn() then
+	local pPlayer = role_manager.getPlayer();
+	
+	if pPlayer:getTurn() then
+		pPlayer:notifyCardsFromUI(p.m_vecPlayerSelected);
 	else
 		cclog("Your not turn");
 	end
@@ -137,8 +140,16 @@ function p.showCards(vecList)
 	end
 	
 	p.m_vecShowCards = vecList;
+
+	performWithDelay(p.m_pCardsLayer,p.onShowTimer,2.0);
 	
 	return true;
+end
+
+function p.onShowTimer(dt)
+	cclog("fewafaew");
+	--unschedule(p.m_pCardsLayer);
+	role_manager.turn(p.m_vecShowCards);
 end
 
 function p.toDeal()
@@ -190,6 +201,14 @@ function p.onTouchBegan(x, y)
 	
 	if nil == pCard then
 		return false;
+	end
+
+	local nPos = card_util.isExistInList(p.m_vecPlayerSelected,pCard);
+	
+	if 0 == nPos then
+		table.insert(p.m_vecPlayerSelected,pCard);
+	else
+		table.remove(p.m_vecPlayerSelected,nPos);
 	end
 	
 	pCard:setPop();

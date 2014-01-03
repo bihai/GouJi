@@ -28,6 +28,18 @@ function p:free()
 	end
 end
 
+function p:isWin()
+	if 0 ~= table.getn(self.m_vecOwnCards) then
+		return false;
+	end
+	
+	return true;
+end
+
+function p:getName()
+	return self.m_strName;
+end
+
 function p:initialise(strName)
 	if nil == strName then
 		cclog("Null Name");

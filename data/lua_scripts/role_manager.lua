@@ -42,7 +42,6 @@ end
 function p.initSingleMode()
 	for i = 1,card_define.ROLE_MAX - 1 do
 		local pNPC = card_npc:new();
-
 		local strText = string.format("NPC_%d",i);
 		
 		if false == pNPC:initialise(strText) then
@@ -71,10 +70,14 @@ function p.turn(vecPreCards)
 		return nil;
 	end
 	
-	pCardsList = pRole:turnCards(vecPreCards);
-	
-	if nil == pCardsList then
-		return nil;
+	if pRole:isWin() then
+		cclog(pRole:getName().." was win");
+	else
+		pCardsList = pRole:turnCards(vecPreCards);
+		
+		if nil == pCardsList then
+			return nil;
+		end
 	end
 	
 	return pCardsList;

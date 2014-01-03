@@ -87,8 +87,6 @@ function p.roleCards(vecCardList)
 	if nil ~= p.m_pCardsFunction then
 		p.m_pCardsFunction(vecCardList);
 	end
-
-	role_manager.turn(vecCardList);
 	
 	return true;
 end

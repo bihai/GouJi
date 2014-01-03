@@ -35,6 +35,8 @@ function p:turnCards(preList)
 	end
 	
 	local vecCards = {};
+
+	cclog(self.m_strName.."\n\nCards those:");
 	
 	for k,v in ipairs(vecRetPos) do
 		local pCard = self.m_vecOwnCards[v];
@@ -43,10 +45,12 @@ function p:turnCards(preList)
 		if nil == pCard then
 			return false;
 		end
+
+		cclog(pCard:getNumber());
 		
 		table.insert(vecCards,pCard);
 	end
-	
+
 	card_manager.roleCards(vecCards);
 	
 	return vecCards;

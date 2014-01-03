@@ -37,6 +37,8 @@ function p:turnCards(preList)
 end
 
 function p:notifyCardsFromUI(vecCards)
+	cclog("notify");
+	
 	if nil == vecCards then
 		return false;
 	end
@@ -46,6 +48,7 @@ function p:notifyCardsFromUI(vecCards)
 	end
 	
 	card_manager.roleCards(vecCards);
+	self:showCards();
 	
 	return true;
 end
